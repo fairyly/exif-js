@@ -63,7 +63,7 @@ A JavaScript library for reading EXIF meta data from JPEG image files.
     
     
     
-    ```
+ ```
     $('#file').change(function(){
 	var fileInput=document.getElementById("file").files;
 	if (fileInput[0]==undefined) {
@@ -168,7 +168,7 @@ A JavaScript library for reading EXIF meta data from JPEG image files.
         };  
         oReader.readAsDataURL(file);  
     }  
-}  
+} 
 
 function setCss3(obj,objAttr){
     //循环属性对象
@@ -191,7 +191,7 @@ function setCss3(obj,objAttr){
 }
 
 
-$('.form button').click(function(){
+  $('.form button').click(function(){
 	var fileInput=document.getElementById("file").files;
 	if (fileInput[0]==undefined) {
 		alert('请先选择一张图片');
@@ -213,4 +213,4 @@ $('.form button').click(function(){
         $.ajax({
             type: "POST",
 
-    ```
+```
