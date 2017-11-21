@@ -1,5 +1,43 @@
 #Exif.js
 
+图片旋转处理: 有封装好的: https://github.com/sorccu/rotate.js
+图片自动旋转的前端实现方案: https://imququ.com/post/how-to-auto-rotate-photo-in-js.html
+demo: https://qgy18.com/lab/jsexif/autorotate.html
+
+```
+lrz(input.files[i], {//压缩图片
+                            width: 100
+                        }).then(function (rst) {
+                            var dataURL = rst.base64;
+
+                            var img = new Image();
+                            img.src = dataURL
+                            img.onload = function(){
+                              // console.log(img.width)
+                              EXIF.getData(img,function(){//获取图片原数据orientation
+                               orientation = EXIF.getTag(img,"Orientation");
+                              });
+                              console.log(orientation);
+                                switch(orientation) {
+                                    case 1:
+                                        break;
+                                    case 6:
+                                        Rotate(img, '90deg');/*旋转90度*/
+                                        break;
+                                    case 3:
+                                        Rotate(img, '180deg');/*旋转180度*/
+                                        break;
+                                    case 8:
+                                        Rotate(img, '270deg');/*旋转270度*/
+                                        break;
+                                    case undefined:
+                                        break;
+                                    default:
+                                        break;
+                                }   
+                            }
+```
+
 A JavaScript library for reading EXIF meta data from JPEG image files.
 >引入exif.js
 <script src="js/exif.js"></script>
